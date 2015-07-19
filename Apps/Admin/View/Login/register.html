@@ -1,0 +1,35 @@
+<extend name="Common@Public/index"/>
+<block name="title">后台注册</block>
+
+<block name="body">
+<div class="banner">
+	 <div class="container">
+		 		 
+		 <div class="banner-form">
+			 <div class="col-md-6 col-md-offset-3">
+				 <form action="{:U('login/postregister','','')}" method="POST">
+					 <div class="row">
+					 	<input class="wow fadeInRight col-md-12" data-wow-delay="0.5s" type="text" name="name" placeholder="用户名" required/>
+					 </div>
+					 <div class="row">
+					 	<input class="wow fadeInRight col-md-12" data-wow-delay="0.5s" type="email" name="email" placeholder="邮箱" required/>
+					 </div>
+					 <div class="row">
+					 	<input class="wow fadeInRight col-md-12" data-wow-delay="0.5s" type="password" name="pwd" placeholder="密码" required/>
+					 </div>
+					 <div class="row">
+					 <input class="wow fadeInRight col-md-12" data-wow-delay="0.5s" type="password" name="confirmpwd" placeholder="确认密码" required/>
+					 </div>
+					 <div class="row">
+					 	<input class="wow fadeInLeft col-md-5 col-md-offset-2" data-wow-delay="0.5s" type="submit" value="注册"/>
+						 <h1>
+						 	<a href="{:U('index','','')}">登录</a>
+						 </h1>
+					 </div>
+				 </form>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>		 
+	 </div>
+</div>
+</block>

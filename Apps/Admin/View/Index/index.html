@@ -1,0 +1,45 @@
+<extend name="Common@Public/index"/>
+<block name="title">欢迎进入后台管理</block>
+<block name="body">
+<!---->
+<div class="banner">
+	 <div class="container">
+		 <div class="header">	 
+			 <div class="logo wow fadeInLeft" data-wow-delay="0.5s">
+			 <a href="/"><img src="/Public/images/logo2.png" alt=""/></a>
+			 </div>	
+			 <div class="top-menu">
+				 <span class="menu"></span> 
+				 <ul>
+					 <li><a href="#">首页</a></li>
+					 <li><a href="{:U('/news','','')}">新闻</a></li>
+					 <li><a href="{:U('/videos','','')}">视频</a></li>
+					 <li><a href="{:U('/messages','','')}">消息</a></li>
+					 <li><a href="{:U('/logout','','')}">登出</a></li>
+				 </ul>
+			 </div>
+			 <div class="clearfix"></div>
+			 <!-- script-for-menu -->
+		 <script>					
+					$("span.menu").click(function(){
+						$(".top-menu ul").slideToggle("slow" , function(){
+						});
+					});
+		 </script>
+		 <!-- script-for-menu -->			 
+		 </div>
+		 <div class="banner-text wow fadeInUp" data-wow-delay="0.5s">
+			 <div class="text-center">
+				 <a href="{:U('/user','','')}">
+				 	<img src="{$user.photo}" alt="头像" class="img-circle">
+				 </a>
+			 </div>
+			 <h1>欢迎你， <span>{$user.name}</span><label>管理员</label></h1>
+			 <h2>在这里可以进行任何操作，但必须保证网站的稳定！</h2>
+		 </div>
+		 <div class="clearfix"></div>	 
+	 </div>
+</div>
+
+
+</block>

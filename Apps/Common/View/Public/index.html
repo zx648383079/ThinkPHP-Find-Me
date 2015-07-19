@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><block name="title"></block></title>
+<import type="css" file="css/bootstrap"/>
+<!-- jQuery (Bootstrap's JavaScript plugins) -->
+<import file="js/jquery#min"/>
+<!-- Custom Theme files -->
+<import type="css" file="css/style"/>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Find Me，找到我" />
+<link href="/Public/images/favicon.png" rel="shortcut icon">
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Raleway:400,800,300,100,500,700,600,900' rel='stylesheet' type='text/css'>
+<!--animated-css-->
+<import type="css" file="css/animate" />
+<import file="js/wow#min"/>
+<script>
+ new WOW().init();
+</script>
+<!--/animated-css-->
+<!--script-->
+<import file="js/move-top"/>
+<import file="js/easing"/>
+
+<!--video.js -->
+<link href="//vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/4.12/video.js"></script>
+<block name="jss"></block>
+
+<!--/script-->
+<script type="text/javascript">
+			jQuery(document).ready(function($) { 
+				$(".scroll").click(function(event) { 		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				 } );
+			 } );
+</script>
+</head>
+<body>
+
+<block name="body"></block>
+<!---->
+<div class="footer">
+	 <div class="container">
+		 <div class="ftr-logo">
+			 <a class="wow bounceIn" data-wow-delay="0.5s" href="/"><img src="/Public/images/logo2.png" alt=""/></a>
+		 </div>
+		 <div class="copy-right wow bounceInUp" data-wow-delay="0.5s">
+			 <p>版权所有@</p>
+		 </div>
+
+	 </div>
+</div>
+<!---->
+<script type="text/javascript">
+		$(document).ready(function() { 
+				/*
+				var defaults = { 
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				 } ;
+				*/
+		$().UItoTop( { easingType: 'easeOutQuart' } );
+ } );
+</script>
+<a href="#to-top" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!----> 
+ </body>
+ </html>

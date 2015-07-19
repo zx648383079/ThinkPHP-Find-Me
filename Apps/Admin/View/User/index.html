@@ -1,0 +1,76 @@
+<extend name="Common@Public/index"/>
+<block name="title">用户信息管理</block>
+<block name="body">
+<div class="message">
+	 <div class="container">
+		 <div class="header">	 
+			 <div class="logo wow fadeInLeft" data-wow-delay="0.5s">
+			 <a href="/"><img src="/Public/images/logo2.png" alt=""/></a>
+			 </div>	
+			 <div class="top-menu">
+				 <span class="menu"></span> 
+				 <ul>
+					 <li><a href="/admin.php">首页</a></li>
+					 <li><a href="{:U('/news','','')}">新闻</a></li>
+					 <li><a href="{:U('/videos','','')}">视频</a></li>
+					 <li><a href="{:U('/messages','','')}">消息</a></li>
+					 <li><a href="{:U('/logout','','')}">登出</a></li>
+				 </ul>
+			 </div>
+			 <div class="clearfix"></div>
+			 <!-- script-for-menu -->
+		 <script>					
+					$("span.menu").click(function(){
+						$(".top-menu ul").slideToggle("slow" , function(){
+						});
+					});
+		 </script>
+		 <!-- script-for-menu -->			 
+		 </div>
+			 <div class="clearfix"></div> 
+	 </div>
+</div>
+
+<div class="container">
+		<div class="row">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">序号：{$user.id}</h3>
+			  </div>
+			  <div class="panel-body">
+				  <div class="text-center">
+				 	<img src="{$user.photo}" alt="头像" class="img-circle">
+				 </div>
+				 <form class="form-horizontal" action="{:U('user/edit','','')}" method="POST" enctype="multipart/form-data">
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-2 control-label">用户名：</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="inputEmail3" name="name" placeholder="用户名" value="{$user.name}" required>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label">邮箱：</label>
+					    <div class="col-sm-10">
+					      <p class="form-control-static">{$user.email}</p>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">头像：</label>
+					    <div class="col-sm-6">
+					      <input type="file" class="form-control" id="inputPassword3" name="photo" accept="image/gif, image/jpeg,image/png, image/jpg" placeholder="头像">
+					    </div>
+						<label class="col-sm-4">(图片大小最好为200px*200px)</label>
+					  </div>
+					  <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					      <button type="submit" class="btn btn-default">修改</button>
+					    </div>
+					  </div>
+					</form>
+			  </div>
+			  <div class="panel-footer">创建时间：{$user.created}</div>
+			</div>
+		</div>
+</div>
+
+</block>

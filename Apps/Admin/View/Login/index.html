@@ -1,0 +1,44 @@
+<extend name="Common@Public/index"/>
+<block name="title">后台登录</block>
+
+<block name="body">
+<div class="banner">
+	 <div class="container">
+		 		 
+		 <div class="banner-form">
+			 <div class="col-md-6 col-md-offset-3">
+			 <form action="{:U('login/postlogin','','')}" method="POST">
+			 	<div class="row">
+				 	<input class="wow fadeInRight col-md-12" data-wow-delay="0.5s" type="email" name="email" placeholder="邮箱" required/>
+				 </div>
+				 <div class="row">
+				 	<input class="wow fadeInRight col-md-12" data-wow-delay="0.5s" type="password" name="pwd" placeholder="密码" required/>
+				 </div>
+				 <div class="row">
+				 	<input class="wow fadeInRight col-lg-5" data-wow-delay="0.5s" type="text" name="verify" placeholder="验证码" required/>
+				 	<div class="col-lg-6">
+					 	<img id="code" style="height:50px;" src="{:U('login/verify','','')}" alt="刷新验证码"/>
+				 	</div>
+				 </div>
+				 <div class="row">
+				 	<input class="wow fadeInLeft col-md-5 col-md-offset-2" data-wow-delay="0.5s" type="submit" value="登录"/>
+					<h1>
+					 	<a href="{:U('login/register','','')}">注册</a>
+					</h1>
+				 </div>
+			 </form>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>		 
+	 </div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function() { 
+	  $("#code").click(function() { 
+	  		$("#code").attr("src","{:U('login/verify','','')}"+"/"+Math.random());
+	   } );
+	 } );
+</script>
+
+</block>
