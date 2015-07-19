@@ -57,6 +57,7 @@
 				 <span class="menu"></span> 
 				 <ul>
 					    <?php if(is_array($data)): foreach($data as $key=>$vo): ?><li><a class="scroll" href="<?php echo ($vo["link"]); ?>"><?php echo ($vo["title"]); ?></a></li><?php endforeach; endif; ?>
+						<li><a href="<?php echo U('/find','','');?>">寻找</a></li>
 				 </ul>
 			 </div>
 			 <div class="clearfix"></div>

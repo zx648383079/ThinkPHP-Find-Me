@@ -1,0 +1,79 @@
+<extend name="Common@Public/index"/>
+<block name="title">开始查找！</block>
+<block name="jss">
+<import file="js/jquery#masonry#min"/>
+</block>
+<block name="body">
+<!---->
+<div class="banner">
+	 <div class="container">
+		 <div class="header">	 
+			 <div class="logo wow fadeInLeft" data-wow-delay="0.5s">
+			 <a href="/"><img src="/Public/images/logo2.png" alt=""/></a>
+			 </div>	
+			 <div class="clearfix"></div>
+		 <!-- script-for-menu -->			 
+		 </div>
+		 <div class="banner-form">
+			 <div id="search">
+				 <div class="row">
+					 <input id="keyword" class="wow fadeInRight col-md-9" data-wow-delay="0.5s" type="text" placeholder="搜索"/>
+					 <button id="searchbtn" class="wow fadeInLeft col-md-2" data-wow-delay="0.5s" >开始</button>
+				 </div>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>		 
+	 </div>
+	 
+	 <div id="content" class="container">
+	 	<div class="item">ggggggggghjbjhbjhbggggggggg</div>
+		 <div class="item">gggggggggggggggggg</div>
+		 <div class="item">ggggggggggggjhgjghvhgvgggggg</div>
+		 <div class="item">gggggggggggggggggg</div>
+		 <div class="item">gggggfhvgvhgvjbggggggggggggg</div>
+		 <div class="item">gggggggggftyfytfcvhgggggggggg</div>
+		 <div class="item">ggggggggtytyfvgggggggggg</div>
+		 <div class="item">gggggggtyydtrdesreggggggggggg</div>
+	 </div>
+</div>
+
+
+<script>
+$(document).ready(function() { 
+	var keyword="";
+	var page=0;
+	$('#searchbtn').click(function() { 
+		keyword=$('#keyword').val();
+		page=0;
+		$('#content').html("");
+		$.getJSON("/index.php/find/search/keyword/"+keyword,function(result){
+			alert(result);
+		} );
+		page++;
+	 } );
+	
+	 var winH = $(window).height(); //页面可视区域高度 
+	  $(window).scroll(function () { 
+	    var pageH = $(document.body).height(); 
+	    var scrollT = $(window).scrollTop(); //滚动条top 
+	    var aa = (pageH-winH-scrollT)/winH; 
+	    if(aa<0.02){ 
+		      
+			page++;
+	    } 
+	  } ); 
+	
+	
+	
+  $('#content').masonry( {  
+    // options  
+    itemSelector : '.item',  
+    columnWidth : 240  
+   } );  
+ } );
+ 
+
+ 
+</script>
+
+</block>

@@ -21,6 +21,7 @@
 	createTable("news","content text,menu_id int(2) not null,created datetime");
 	createTable("users","name varchar(50) not null,email varchar(50),pwd varchar(255),photo varchar(255),created datetime");
 	createTable("messages","name varchar(50),email varchar(50) not null,kind varchar(50),message text,isread tinyint(1),ip varchar(50),created datetime");
+	createTable("memos","keyword varchar(255) not null,content text not null,created datetime");
 	
 	$mysqli->close();
 	echo "<br/>数据库连接断开！";
