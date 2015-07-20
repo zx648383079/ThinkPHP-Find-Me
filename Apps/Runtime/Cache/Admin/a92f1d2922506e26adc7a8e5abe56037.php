@@ -15,9 +15,9 @@
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--webfont-->
-<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
+<!--<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Raleway:400,800,300,100,500,700,600,900' rel='stylesheet' type='text/css'>
-<!--animated-css-->
+--><!--animated-css-->
 <link rel="stylesheet" type="text/css" href="/Public/css/animate.css" />
 <script type="text/javascript" src="/Public/js/wow.min.js"></script>
 <script>
@@ -84,7 +84,7 @@
 			  </div>
 			  <div class="panel-body">
 				  <div class="text-center">
-				 	<img src="<?php echo ($user["photo"]); ?>" alt="头像" style="height:200px" class="img-circle">
+				 	<img src="<?php echo ($user["photo"]); ?>" alt="头像" class="img-circle">
 				 </div>
 				 <form class="form-horizontal" action="<?php echo U('user/edit','','');?>" method="POST" enctype="multipart/form-data">
 					  <div class="form-group">

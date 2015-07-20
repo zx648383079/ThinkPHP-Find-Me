@@ -16,7 +16,7 @@ class FindController extends Controller {
         
         $memos=M('memos');
         $index=$page*10;
-        $data=$memos->where($memo)->order("created desc")->limit("$index 10")->select();
+        $data=$memos->where($memo)->order("created desc")->select();
         $this->ajaxReturn($data);
     }
     
@@ -28,9 +28,9 @@ class FindController extends Controller {
         $memos=M('memos');
         $result=$memos->add($memo);
         if($result){
-            $data = 'ok';
+            $data = '发布成功！';
         } else {
-            $data='no';
+            $data='发布失败!';
         }
         $this->ajaxReturn($data);
     }

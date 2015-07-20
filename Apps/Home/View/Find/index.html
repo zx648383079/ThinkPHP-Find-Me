@@ -15,7 +15,7 @@
 		 <!-- script-for-menu -->			 
 		 </div>
 		 <div class="banner-form">
-			 <div id="search">
+			 <div class="form">
 				 <div class="row">
 					 <input id="keyword" class="wow fadeInRight col-md-9" data-wow-delay="0.5s" type="text" placeholder="搜索"/>
 					 <button id="searchbtn" class="wow fadeInLeft col-md-2" data-wow-delay="0.5s" >开始</button>
@@ -26,49 +26,79 @@
 	 </div>
 	 
 	 <div id="content" class="container">
-	 	<div class="item">ggggggggghjbjhbjhbggggggggg</div>
-		 <div class="item">gggggggggggggggggg</div>
-		 <div class="item">ggggggggggggjhgjghvhgvgggggg</div>
-		 <div class="item">gggggggggggggggggg</div>
-		 <div class="item">gggggfhvgvhgvjbggggggggggggg</div>
-		 <div class="item">gggggggggftyfytfcvhgggggggggg</div>
-		 <div class="item">ggggggggtytyfvgggggggggg</div>
-		 <div class="item">gggggggtyydtrdesreggggggggggg</div>
 	 </div>
 </div>
 
+<div style="position: fixed;top:100px">
+	<a id="send" href="javascript:void(0);">发布</a>
+</div>
+
+<div id="sendForm" style="position:fixed;display:none;z-index:2000;top:0px;left:0px;width:100%;height:100%;background-color:rgba(255,255,0,0.5)">
+	<div class="form">
+		<div class="row">
+			<input id="sendWord" class="col-md-12" type="text" placeholder="关键词" required/>
+		</div>
+		<div class="row">
+			<textarea id="sendContent" class="col-md-12" rows="5" placeholder="内容" required></textarea>
+		</div>
+		<div class="row">
+			<button id="sendBtn" class="col-md-2 col-md-offset-7">提交</button>
+			<button id="cancel" class="col-md-2 col-md-offset-1">取消</button>
+		</div>
+	</div>
+</div>
 
 <script>
 $(document).ready(function() { 
-	var keyword="";
-	var page=0;
-	$('#searchbtn').click(function() { 
-		keyword=$('#keyword').val();
-		page=0;
-		$('#content').html("");
-		$.getJSON("/index.php/find/search/keyword/"+keyword,function(result){
-			alert(result);
-		} );
-		page++;
+	
+	$('#send').click(function() { 
+		$('#sendForm').css('display','block');
 	 } );
 	
-	 var winH = $(window).height(); //页面可视区域高度 
-	  $(window).scroll(function () { 
-	    var pageH = $(document.body).height(); 
-	    var scrollT = $(window).scrollTop(); //滚动条top 
-	    var aa = (pageH-winH-scrollT)/winH; 
-	    if(aa<0.02){ 
-		      
-			page++;
-	    } 
-	  } ); 
+	$('#cancel').click(function() { 
+		$('#sendForm').css('display','none');
+	 } );
+	
+	$('#sendBtn').click(function() { 
+		var word=$('#sendWord').val();
+		var content=$('#sendContent').val();
+		if(content!="" && word!="") {
+			$.post('/index.php/find/add',{'keyword':word,'content':content},function(data) {
+				alert(data);
+			 } );
+			 $('#sendWord').val('');
+			 $('#sendContent').val('');
+		 	$('#sendForm').css('display','none');
+		 } else {
+			 alert("关键字和内容不能为空");
+		 }
+		
+	 } );
+	
+	$('#searchbtn').click(function() { 
+		var keyword=$('#keyword').val();
+		$('#content').html("");
+		if(keyword)
+		$.getJSON("/index.php/find/search/keyword/"+keyword,function(result){
+			$(result).each(function(index){
+				var item=result[index];
+				$('#content').append("<div class=\"item\">"+
+					"<div class=\"panel panel-info\">"+
+					"<div class=\"panel-heading\"><h3 class=\"panel-title\">关键字："+
+					item.keyword+"</h3></div><div class=\"panel-body\">"+
+					item.content+"</div><div class=\"panel-footer\">发布时间："+
+					item.created+"</div>");
+			})
+		} );
+	 } );
+	
 	
 	
 	
   $('#content').masonry( {  
     // options  
     itemSelector : '.item',  
-    columnWidth : 240  
+    columnWidth : 240 
    } );  
  } );
  

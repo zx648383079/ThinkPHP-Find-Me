@@ -15,9 +15,9 @@
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--webfont-->
-<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
+<!--<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Raleway:400,800,300,100,500,700,600,900' rel='stylesheet' type='text/css'>
-<!--animated-css-->
+--><!--animated-css-->
 <link rel="stylesheet" type="text/css" href="/Public/css/animate.css" />
 <script type="text/javascript" src="/Public/js/wow.min.js"></script>
 <script>
@@ -95,7 +95,6 @@
 			  </div>
 			  <div class="panel-footer">上传时间：<?php echo ($vo["created"]); ?></div>
 			</div>
-			
 		</div><?php endforeach; endif; ?>
 </div>
 

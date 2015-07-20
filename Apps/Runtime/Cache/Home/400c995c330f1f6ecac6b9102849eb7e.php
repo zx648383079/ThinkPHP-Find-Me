@@ -15,9 +15,9 @@
 
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--webfont-->
-<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
+<!--<link href='http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Raleway:400,800,300,100,500,700,600,900' rel='stylesheet' type='text/css'>
-<!--animated-css-->
+--><!--animated-css-->
 <link rel="stylesheet" type="text/css" href="/Public/css/animate.css" />
 <script type="text/javascript" src="/Public/js/wow.min.js"></script>
 <script>
@@ -74,7 +74,7 @@
 			 <h1>了解我们的 <span>产品</span>让您的生活更<label>便利</label></h1>
 			 <h2>本产品专注于解决生活中不便，在本站中可以随时找到那个陌生但又急于找到的她/他，本产品不会保留任何隐私，请放心使用！</h2>
 		 </div>
-		 <div class="banner-form">
+		 <div class="form">
 			 <form action="#contact">
 				 <div class="row">
 					 <input class="wow fadeInRight col-md-4" data-wow-delay="0.5s" type="text" placeholder="称呼"/>
