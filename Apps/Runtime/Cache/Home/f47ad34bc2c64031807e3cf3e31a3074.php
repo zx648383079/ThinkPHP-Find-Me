@@ -121,19 +121,22 @@ $(document).ready(function() {
 	
 	$('#searchbtn').click(function() { 
 		var keyword=$('#keyword').val();
-		$('#content').html("");
-		if(keyword)
-		$.getJSON("/index.php/find/search/keyword/"+keyword,function(result){
-			$(result).each(function(index){
-				var item=result[index];
-				$('#content').append("<div class=\"item\">"+
-					"<div class=\"panel panel-info\">"+
-					"<div class=\"panel-heading\"><h3 class=\"panel-title\">关键字："+
-					item.keyword+"</h3></div><div class=\"panel-body\">"+
-					item.content+"</div><div class=\"panel-footer\">发布时间："+
-					item.created+"</div>");
-			})
-		} );
+		
+		if(keyword){
+			$('#content').html("");
+			$('.form').css({"position": "fixed","top":"-56px","z-index":"1000"});
+			$.getJSON("/index.php/find/search/keyword/"+keyword,function(result){
+				$(result).each(function(index){
+					var item=result[index];
+					$('#content').append("<div class=\"item\">"+
+						"<div class=\"panel panel-info\">"+
+						"<div class=\"panel-heading\"><h3 class=\"panel-title\">关键字："+
+						item.keyword+"</h3></div><div class=\"panel-body\">"+
+						item.content+"</div><div class=\"panel-footer\">发布时间："+
+						item.created+"</div>");
+				})
+			} );
+		}
 	 } );
 	
 	
